@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Input, Text, VStack } from "@chakra-ui/react";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const Index = () => {
+  useEffect(() => {
+    document.body.style.background = "linear-gradient(135deg, #00ff00, #ffd700, #0000ff)";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.backgroundSize = "cover";
+    return () => {
+      document.body.style.background = "";
+    };
+  }, []);
+
   const [date1, setDate1] = useState({ year: "", month: "", day: "" });
   const [date2, setDate2] = useState({ year: "", month: "", day: "" });
   const [result, setResult] = useState("");
