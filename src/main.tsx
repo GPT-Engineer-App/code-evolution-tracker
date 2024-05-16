@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, GlobalStyle } from "@chakra-ui/react";
 
 const colors = {
   brand: {
@@ -13,12 +13,21 @@ const colors = {
 
 const theme = extendTheme({ colors });
 
+const globalStyles = {
+  body: {
+    background: "linear-gradient(135deg, #00FF00, #FFD700, #0000FF)",
+    color: "white",
+    fontFamily: "'Courier New', Courier, monospace",
+  },
+};
+
 const root = document.getElementById("root");
 if (!root) throw new Error("Failed to find the root element");
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
+      <GlobalStyle styles={globalStyles} />
       <App />
     </ChakraProvider>
   </React.StrictMode>
